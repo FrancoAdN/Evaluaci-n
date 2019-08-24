@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evaluacion di Nápoli</title>
+
+    <style>
+        div{
+            display: none;
+        }
+        #indata{
+            border:1px solid black;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="show('in')">Insertar datos</button>
+    <button onclick="show('del'); viewDel();">Eliminar datos</button>
+    <button onclick="show('act'); viewAct();">Actualizar datos</button>
+    <button onclick="show('ser');">Buscar datos</button>
+    
+    </br></br>
+
+    <div id="in">
+        <h3>INSERTAR DATOS</h3>
+        <form id="indata"action="/inst" method="post">
+            </br>
+            <center><label for="task">Tarea: </label><input type="text" name="task" required></center></br>
+            <center><label for="usr">Usuario: </label><input type="text" name="usr" required></center></br>
+            <center><label for="prior">Prioridad: </label><input type="range" name="prior" min="1" max="10" id="inrg" onchange="range()" required>&nbsp;&nbsp;<a id="rg">6</a></br></center></br>
+            <center><label for="cump">Cumplida: </label><input type="checkbox" name="cump"></br></center></br>
+            <center><button type="submit">Insertar registro</button></center></br>
+        </form>
+    </div>
+    <div id="del">
+        <h3>ELIMINAR DATOAS</h3>
+        <table id="tb" style="border: 1px solid black;"></table>
+        <button onclick="delall()">Eliminar todo</button>
+    </div>
+    <div id="act">
+        <h3>ACTUALIZAR DATOS</h3>
+        <table id="acttb" style="border: 1px solid black;">
+        </table>
+    </div>
+    <div id="ser">
+        <h3>BUSCAR DATOS</h3>
+        Tarea: <input id="stask" type="text"><button onclick="search(1);">buscar</button></br>
+        Usuario:<input id="susr"type="text"><button onclick="search(2);">buscar</button></br>
+        Prioridad: <input id="spri"type="range" min="1" max="10" value="5"><button onclick="search(3);">buscar</button></br>
+        Cumplida: <input id="scump"type="checkbox"><button onclick="search(4);">buscar</button></br>
+        <table id="res" style="border:1px solid black; display: none;">
+        </table>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
